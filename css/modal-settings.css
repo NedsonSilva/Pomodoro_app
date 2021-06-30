@@ -1,0 +1,202 @@
+:root {
+   --bg-main: #FFFFFF;
+   --bg-input: #EEF1FA;
+}
+
+#settings {
+   display: none;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.52);
+   z-index: 10;
+}
+
+#settings.open-settings {
+   display: flex;
+}
+
+form {
+   position: relative;
+   width: min(90%, 600px);
+   background: var(--bg-main);
+   color: #0A0C25;
+   border-radius: 30px;
+}
+
+.close {
+   position: absolute;
+   top: 40px;
+   right: 40px;
+   cursor: pointer;
+   transition: transform .2s;
+}
+
+.close:hover {
+   transform: scale(1.2);
+}
+
+.close img {
+   width: 20px;
+}
+
+legend {
+   font-size: 1.7rem;
+   font-weight: bolder;
+}
+
+form section, form legend, form button {
+   margin: 1.7rem 2.2rem;
+}
+
+form section h2 {
+   font-weight: 600;
+   font-size: 1rem;
+   letter-spacing: 5px;
+}
+
+#conf-time, #conf-font {
+   border-bottom: 2px solid #EEEEEE;
+   padding-bottom: 1rem;
+}
+
+#conf-time {
+   column-count: 3;
+}
+
+#conf-time h2 {
+   column-span: all;
+   column-gap: 10px;
+}
+
+#conf-time div {
+   width: 33%;
+   padding: 1rem 0;
+}
+
+#conf-time label {
+   display: block;
+   width: max-content;
+   color: #AEADB3;
+   font-weight: 600;
+   line-height: 2.5rem;
+}
+
+#conf-time input {
+   width: 150px;
+   height: 50px;
+   border: none;
+   outline: none;
+   background: var(--bg-input);
+   padding: 1rem;
+   border-radius: 10px;
+   font-size: 1rem;
+   font-weight: 600;
+   color: #0a0c25de;
+   letter-spacing: 1px;
+}
+
+#conf-font, #conf-color {
+   display: flex;
+   align-items: center;
+   padding-bottom: 1.7rem;
+}
+
+#conf-color{
+   padding-bottom: 0;
+}
+
+.list-fonts, .list-colors {
+   display: flex;
+   column-gap: 20px;
+   margin-left: auto;
+   color: #8F939F;
+}
+
+.list-fonts li, .list-colors li {
+   font-weight: 700;
+   width: 45px;
+   height: 45px;
+   text-align: center;
+   line-height: 45px;
+   border-radius: 50%;
+}
+
+.list-fonts li:hover, 
+.list-colors li:hover {
+   cursor: pointer;
+}
+
+.list-fonts li {
+   background: #EEF1F8;
+}
+
+.font-type1 {
+   font-family: 'Open Sans', sans-serif;
+}
+
+.font-type2 {
+   font-family: 'Roboto Slab', serif;
+}
+
+.font-type3 {
+   font-family: 'Londrina Solid', cursive;
+}
+
+.list-fonts li.selected {
+   color: white;
+   background: #151932;
+}
+
+.list-colors li {
+   background: red;
+}
+
+li.color-theme1 {
+   background: #FD6E72;
+}
+
+li.color-theme2 {
+   background: #6FF3F8;
+}
+
+li.color-theme3 {
+   background: #D981F9;
+}
+
+.list-colors img{
+   vertical-align: middle;
+}
+
+.warning {
+   margin-bottom: 3rem;
+   text-align: center;
+   color: #95760d;
+   bottom: 0;
+   font-size: .9rem;
+}
+
+#apply {
+   border: none;
+   background: #F87070;
+   padding: 1.2rem 3rem;
+   font-size: 1.2rem;
+   font-weight: 700;
+   color: white;
+   border-radius: 100px;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   bottom: -30px;
+   margin: 0;
+   cursor: pointer;
+   transition: background .2s;
+}
+
+#apply:hover {
+   background: #f84d4d;
+}

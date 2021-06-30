@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+
+   <link rel="shortcut icon" href="assets/icons/icon-pomodoro.png" type="image/png">
+
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/modal-settings.css">
+   <link rel="stylesheet" href="css/appareance.css">
+   <link rel="stylesheet" href="css/mobile.css">
+   
+   <meta name="author" content="Nedson Silva Alfaia">
+   <meta name="description" content="Pomodoro app clock">
+
+   <title>Pomodoro app</title>
+</head>
+<body>
+   <header>
+      <h1>Pomodoro</h1>
+      <nav>
+         <ul class="menu">
+            <li>
+               <button onclick="pomodoroTimer()">pomodoro</button>
+            </li>
+            <li>
+               <button onclick="shortBreak()" class="inative">short break</button>
+            </li>
+            <li>
+               <button onclick="longBreak()" class="inative">long break</button>
+            </li>
+         </ul>
+      </nav>
+   </header>
+   <main>
+      <section class="time-container">
+         <div class="circle-time">
+            <h2 class="time">22:00</h2>
+            <h3 class="start">START</h3>
+            <audio src="assets/audio/timer_Beep.mp3"></audio>
+         </div>    
+         <svg width="95%" height="95%" viewBox="0 0 277 266" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle id="circleTimer" cx="139" cy="133" r="134" stroke-width="9" fill="none" stroke-linecap="round" />
+         </svg>
+      </section>
+      <footer id="config">
+         <img src="assets/icons/icon-setting.svg" alt="">
+      </footer>
+   </main>
+
+   <section id="settings">
+      <form>
+         <legend>Settings</legend>
+         <div class="close" title="Close">
+            <img src="assets/icons/close-icon.png" alt="close">
+         </div>
+         <hr>
+         <section id="conf-time">
+            <h2>TIME (MINUTES)</h2>
+            <div>
+               <label for="pomodoro">pomodoro</label>
+               <input type="number" id="pomodoro" name="pomodoro" value="25" max="60" min="5">
+            </div>
+            <div>
+               <label for="short_break">short break</label>
+               <input type="number" id="short_break" name="short_break" value="5" max="10" min="1">
+            </div>
+            <div>
+               <label for="long_break">long break</label>
+               <input type="number" id="long_break" name="long_break" value="10" max="20" min="5">
+            </div>   
+         </section>
+         <section id="conf-font">
+            <h2>FONT</h2>
+            <ul class="list-fonts">
+               <li class="font-type1 selected" title="Open Sans">Aa</li>
+               <li class="font-type2" title="Roboto Slab">Aa</li>
+               <li class="font-type3" title="Righteous">Aa</li>
+            </ul>
+         </section>
+         <section id="conf-color">
+            <h2>COLOR</h2>
+            <ul class="list-colors">
+               <li class="color-theme1">
+                  <img src="assets/icons/selected-icon.png" alt="">
+               </li>
+               <li class="color-theme2"></li>
+               <li class="color-theme3"></li>
+            </ul>
+         </section>
+         <p class="warning">the pomodoro will restart when applying the settings</p>
+         <button id="apply" type="submit">Apply</button>
+      </form>
+   </section>
+   
+   <script src="js/appareance.js"></script>
+   <script src="js/main.js"></script>
+   <script src="js/pomodoro.js"></script>
+   <script src="js/breaks.js"></script>
+</body>
+</html>

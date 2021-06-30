@@ -1,0 +1,35 @@
+@media screen and (max-width: 600px) {
+   header h1 {
+      margin: 1rem 0;
+   }
+
+   .time-container {
+      width: 330px;
+      height: 330px;
+   }
+
+   .time {
+      font-size: 5.3rem;
+   }
+
+   .menu {
+      margin: auto;
+   }
+
+   #config img {
+      width: 40px;
+   }
+
+   .menu button {
+      padding: 1.1rem .7rem;
+   }
+
+   form section, form legend, form button {
+      margin: 1.7rem 1rem;
+   }
+
+   #conf-time input {
+      width: 90px;
+   }
+
+}

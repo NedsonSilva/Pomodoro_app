@@ -1,0 +1,74 @@
+:root {
+   --color-theme2: #6FF3F8;
+   --color-theme3: #D981F9;
+}
+
+.color2 .menu button {
+   background: var(--color-theme2);
+}
+
+.color2 circle {
+   stroke: var(--color-theme2);
+}
+
+.color2 .menu button.inative, 
+.color3 .menu button.inative {
+   background: none;
+}
+
+.color2 #apply {
+   background: #9ff4f7;
+   color: rgba(0, 0, 0, 0.794);
+}
+
+.color2 #apply:hover {
+   background: var(--color-theme2);
+}
+
+.color2 #apply:hover {
+   background: var(--color-theme2);
+}
+
+/* THEME 3 */
+.color3 .menu button {
+   background: var(--color-theme3);
+}
+
+.color3 #apply {
+   background: #dc9cf3;
+}
+
+.color3 #apply:hover {
+   background: var(--color-theme3);
+}
+
+.color3 circle {
+   stroke: var(--color-theme3);
+}
+
+/*<<<<<<<<<<<< FONT >>>>>>>>>>>>>>> */
+.font2, .font2 button {
+   font-family: 'Roboto Slab', serif;
+}
+
+.font2 .warning {
+   letter-spacing: 1px;
+}
+
+.font3, .font3 button {
+   font-family: 'Londrina Solid', cursive;
+}
+
+.font3 legend {
+   font-weight: 400;
+   letter-spacing: 3px;
+}
+
+.font3 #settings h2 {
+   font-weight: 300;
+}
+
+.font3 button {
+   font-size: .8rem;
+   letter-spacing: 2px;
+}
