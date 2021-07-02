@@ -13,34 +13,35 @@ const pomodoroButtons = document.querySelectorAll('.menu button')
 
 //pomodoro timer
 const mainElement = pomodoroState.parentNode.parentNode
-let minutes = getStartMinutes.value
-let seconds = 0
+let minute = getStartMinutes.value * 60
+let second = minute / 60
 let pomodoro = 0
+let timeSound = 0
 let initial = true
 let alternateStartAndPause = true
 
-timeElement.innerText = `${getStartMinutes.value < 10 ? '0' + getStartMinutes.value : getStartMinutes.value}:00`
+formatTimer(second)
 
 function toggleConf() {
    document.getElementById('settings').classList.toggle('open-settings')
 }
 
-const lastConfig = { 
-   start: 0, 
-   short: 0, 
+const lastConfig = {
+   start: 0,
+   short: 0,
    long: 0,
    lastFontSelect: 0,
    lastColorSelect: 0,
 
    lastFont() {
       altFont.forEach((font, index) => {
-        if(font.classList.contains('selected')) this.lastFontSelect = index
+         if (font.classList.contains('selected')) this.lastFontSelect = index
       })
    },
 
    lastColor() {
       altColor.forEach((color, index) => {
-         if(color.querySelector('img')) this.lastColorSelect = index
+         if (color.querySelector('img')) this.lastColorSelect = index
       })
    }
 }
@@ -60,14 +61,14 @@ document.querySelector('.close img').addEventListener('click', () => {
    long_break.value = lastConfig.long
 
    altFont.forEach((font, index) => {
-      if(index == lastConfig.lastFontSelect) 
+      if (index == lastConfig.lastFontSelect)
          font.classList.add('selected')
-      else 
+      else
          font.classList.remove('selected')
    })
 
    altColor.forEach((font, index) => {
-      if(index === lastConfig.lastColorSelect) 
+      if (index === lastConfig.lastColorSelect)
          font.innerHTML = '<img src="assets/icons/selected-icon.png" alt="">'
       else
          font.innerHTML = ''
@@ -76,69 +77,38 @@ document.querySelector('.close img').addEventListener('click', () => {
    toggleConf()
 })
 
-function reset() {
-   pomodoroState.innerText = 'START'
-   seconds = 0
-   initial = true
-   circleTimer.style.animationName = ''
-   circleTimer.style.animationDuration = ''
-   circleTimer.style.animationPlayState = ''
-   alternateStartAndPause = true
-   clearInterval(pomodoro)
-
-   pomodoroButtons.forEach((btn, index) => {
-      if(!btn.classList.contains('inative')){
-         if(index == 0) formatClock(getStartMinutes.value)
-         if(index == 1) formatClock(short_break.value)
-         if(index == 2) formatClock(long_break.value)
-      }
-   })
-}
-
-function formatClock(clock) {
-   timeElement.innerText = `${clock < 10 ? '0' + clock: clock}:00`
-}
 
 function applyConf(event) {
    event.preventDefault()
 
-   if(colorSelected === 1) 
+   if (colorSelected === 1)
       body.classList.remove('color2', 'color3')
-   if(colorSelected === 2) {
+   if (colorSelected === 2) {
       body.classList.remove('color3')
       body.classList.add('color2')
    }
 
-   if(colorSelected === 3){
+   if (colorSelected === 3) {
       body.classList.remove('color2')
-      body.classList.add('color3') 
+      body.classList.add('color3')
    }
 
-   if(fontSelected === 1) 
+   if (fontSelected === 1)
       body.classList.remove('font2', 'font3')
-   if(fontSelected === 2) {
+   if (fontSelected === 2) {
       body.classList.remove('font3')
       body.classList.add('font2')
-   }      
-   if(fontSelected === 3) {
+   }
+   if (fontSelected === 3) {
       body.classList.remove('font2')
       body.classList.add('font3')
    }
-   
+
    pomodoroButtons.forEach((btn, index) => {
-      if(!btn.classList.contains('inative')){
-         if(index === 0) {
-            pomodoroTimer()
-            formatClock(getStartMinutes.value)
-         }
-         if(index === 1) {
-            shortBreak()
-            formatClock(short_break.value)
-         }
-         if(index === 2) {
-            longBreak()  
-            formatClock(long_break.value)
-         }
+      if (!btn.classList.contains('inative')) {
+         if (index === 0) pomodoroTimer()
+         if (index === 1) shortBreak()
+         if (index === 2) longBreak()
       }
    })
 

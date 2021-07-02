@@ -1,19 +1,14 @@
 function start() {
    pomodoro = setInterval(() => {
-      if(seconds == 0) {
-         seconds = 59
-         minutes--
-      } else
-         seconds--
-
-      timer()
+      minute--
+      timer(minute)
    }, 1000)
 
-   if(initial) {
+   if (initial) {
       circleTimer.style.animationName = 'time'
-      circleTimer.style.animationDuration = `${minutes > 0 ? minutes * 60 : 60}s`
+      circleTimer.style.animationDuration = `${minute}s`
       circleTimer.style.animationPlayState = 'running'
-   } else 
+   } else
       circleTimer.style.animationPlayState = 'running'
 
    initial = false
@@ -24,27 +19,29 @@ function pause() {
    circleTimer.style.animationPlayState = 'paused'
 }
 
-function timeOut()  {
+function timeOut() {
    clearInterval(pomodoro)
    document.querySelector('.circle-time h3').innerText = 'RESTART'
    mainElement.classList.add('timeout')
    timerBeep.play()
-   pomodoro = setInterval(() => { timerBeep.play() }, 10000)
+   timeSound = setInterval(() => timerBeep.play(), 10000)
 }
 
-function timer() {
-   const format = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds: seconds}`
-   timeElement.innerText = format
-   if(minutes == 0 && seconds == 0) timeOut()
+function timer(second) {
+   const date = new Date(second * 1000).toLocaleTimeString('pt-br', {
+      hour12: false,
+      minute: '2-digit',
+      second: '2-digit',
+      timeZone: 'GMT'
+   })
+   timeElement.innerText = date
+   if (!second) timeOut()
 }
 
 pomodoroState.addEventListener('click', () => {
-   if(pomodoroState.innerText === 'RESTART') {
+   if (pomodoroState.innerText === 'RESTART') {
       reset()
-      timerBeep.pause()
-      mainElement.classList.remove('timeout')
-      clearInterval(pomodoro)
-   }else if(alternateStartAndPause) {
+   } else if (alternateStartAndPause) {
       start()
       pomodoroState.innerText = 'PAUSE'
       alternateStartAndPause = false
