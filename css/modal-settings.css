@@ -6,7 +6,6 @@
 #settings {
    display: none;
    justify-content: center;
-   align-items: center;
    position: fixed;
    top: 0;
    left: 0;
@@ -23,6 +22,8 @@
 form {
    position: relative;
    width: min(90%, 600px);
+   height: 85%;
+   margin-top: 1rem;
    background: var(--bg-main);
    color: #0A0C25;
    border-radius: 30px;

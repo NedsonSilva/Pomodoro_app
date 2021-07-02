@@ -29,13 +29,13 @@
       <nav>
          <ul class="menu">
             <li>
-               <button onclick="pomodoroTimer()">pomodoro</button>
+               <button onclick="pomodoroTimer(this)">pomodoro</button>
             </li>
             <li>
-               <button onclick="shortBreak()" class="inative">short break</button>
+               <button onclick="shortBreak(this)" class="inative">short break</button>
             </li>
             <li>
-               <button onclick="longBreak()" class="inative">long break</button>
+               <button onclick="longBreak(this)" class="inative">long break</button>
             </li>
          </ul>
       </nav>
@@ -75,7 +75,7 @@
             </div>
             <div>
                <label for="long_break">long break</label>
-               <input type="number" id="long_break" name="long_break" value="10" max="20" min="5">
+               <input type="number" id="long_break" name="long_break" value="10" max="30" min="5">
             </div>   
          </section>
          <section id="conf-font">
@@ -101,9 +101,9 @@
       </form>
    </section>
    
-   <script src="js/appareance.js"></script>
    <script src="js/main.js"></script>
-   <script src="js/pomodoro.js"></script>
+   <script src="js/appareance.js"></script>
    <script src="js/breaks.js"></script>
+   <script src="js/pomodoro.js"></script>
 </body>
 </html>

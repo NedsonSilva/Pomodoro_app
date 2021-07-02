@@ -1,17 +1,11 @@
-let minutes = getStartMinutes.value
-let seconds = 0
-let pomodoro = 0
-let initial = true
-let alternateStartAndPause = true
-
 function start() {
    pomodoro = setInterval(() => {
       if(seconds == 0) {
          seconds = 59
          minutes--
-      } else {
+      } else
          seconds--
-      }
+         
       timer()
    }, 1000)
 
@@ -32,25 +26,23 @@ function pause() {
 
 function timeOut()  {
    clearInterval(pomodoro)
-   pomodoroState.innerText = 'RESTART'
-   pomodoroState.parentNode.parentNode.classList.add('timeout')
+   document.querySelector('.circle-time h3').innerText = 'RESTART'
+   mainElement.classList.add('timeout')
    timerBeep.play()
-   pomodoro = setInterval(() => {
-      timerBeep.play()
-   }, 10000)
+   pomodoro = setInterval(() => { timerBeep.play() }, 10000)
 }
 
 function timer() {
    const format = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds: seconds}`
    timeElement.innerText = format
-   if(minutes == 0 && seconds == 0)timeOut()
+   if(minutes == 0 && seconds == 0) timeOut()
 }
 
 pomodoroState.addEventListener('click', () => {
    if(pomodoroState.innerText === 'RESTART') {
       reset()
       timerBeep.pause()
-      pomodoroState.parentNode.parentNode.classList.remove('timeout')
+      mainElement.classList.remove('timeout')
       clearInterval(pomodoro)
    }else if(alternateStartAndPause) {
       start()

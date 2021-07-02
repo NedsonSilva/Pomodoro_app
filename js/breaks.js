@@ -1,27 +1,29 @@
-const short_break = document.getElementById('short_break')
-const long_break = document.getElementById('long_break')
-const pomodoroButtons = document.querySelectorAll('.menu button')
-
-function pomodoroTimer() {
-   getStartMinutes.value = 25
-   pomodoroButtons[0].classList.remove('inative')
-   pomodoroButtons[1].classList.add('inative')
-   pomodoroButtons[2].classList.add('inative')
-   reset()
+function utils(id) {
+   pomodoroButtons.forEach((btn, index) => {
+      if(index != id) btn.classList.add('inative')
+      else btn.classList.remove('inative')
+   })
 }
 
-function shortBreak() {
-   getStartMinutes.value = short_break.value
-   pomodoroButtons[0].classList.add('inative')
-   pomodoroButtons[1].classList.remove('inative')
-   pomodoroButtons[2].classList.add('inative')
-   reset()
+function altClock(clock) {
+   timeElement.innerText = `${clock < 10 ? '0' + clock: clock}:00`
+   minutes = clock
 }
 
-function longBreak() {
-   getStartMinutes.value = long_break.value
-   pomodoroButtons[0].classList.add('inative')
-   pomodoroButtons[1].classList.add('inative')
-   pomodoroButtons[2].classList.remove('inative')
-   reset()
+function pomodoroTimer(element) {
+   utils(0)
+   altClock(getStartMinutes.value)
+   if(element) reset()
+}
+
+function shortBreak(element) {
+   utils(1)
+   altClock(short_break.value)
+   if(element) reset()
+}
+
+function longBreak(element) {
+   utils(2)
+   altClock(long_break.value)
+   if(element) reset()
 }
