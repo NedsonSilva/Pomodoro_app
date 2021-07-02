@@ -5,7 +5,7 @@ function start() {
          minutes--
       } else
          seconds--
-         
+
       timer()
    }, 1000)
 

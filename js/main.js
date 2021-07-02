@@ -85,6 +85,14 @@ function reset() {
    circleTimer.style.animationPlayState = ''
    alternateStartAndPause = true
    clearInterval(pomodoro)
+
+   pomodoroButtons.forEach((btn, index) => {
+      if(!btn.classList.contains('inative')){
+         if(index == 0) formatClock(getStartMinutes.value)
+         if(index == 1) formatClock(short_break.value)
+         if(index == 2) formatClock(long_break.value)
+      }
+   })
 }
 
 function formatClock(clock) {
@@ -100,7 +108,7 @@ function applyConf(event) {
       body.classList.remove('color3')
       body.classList.add('color2')
    }
-   
+
    if(colorSelected === 3){
       body.classList.remove('color2')
       body.classList.add('color3') 

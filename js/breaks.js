@@ -1,4 +1,4 @@
-function utils(id) {
+function selectButton(id) {
    pomodoroButtons.forEach((btn, index) => {
       if(index != id) btn.classList.add('inative')
       else btn.classList.remove('inative')
@@ -11,19 +11,19 @@ function altClock(clock) {
 }
 
 function pomodoroTimer(element) {
-   utils(0)
+   selectButton(0)
    altClock(getStartMinutes.value)
    if(element) reset()
 }
 
 function shortBreak(element) {
-   utils(1)
+   selectButton(1)
    altClock(short_break.value)
    if(element) reset()
 }
 
 function longBreak(element) {
-   utils(2)
+   selectButton(2)
    altClock(long_break.value)
    if(element) reset()
 }
