@@ -4,6 +4,8 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Nedson Silva Alfaia">
+   <meta name="description" content="Pomodoro app clock">
    
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +20,6 @@
    <link rel="stylesheet" href="css/appareance.css">
    <link rel="stylesheet" href="css/mobile.css">
    
-   <meta name="author" content="Nedson Silva Alfaia">
-   <meta name="description" content="Pomodoro app clock">
-
    <title>Pomodoro app</title>
 </head>
 <body>
@@ -29,13 +28,13 @@
       <nav>
          <ul class="menu">
             <li>
-               <button onclick="pomodoroTimer(this)">pomodoro</button>
+               <button onclick="pomodoroTimer()">pomodoro</button>
             </li>
             <li>
-               <button onclick="shortBreak(this)" class="inative">short break</button>
+               <button onclick="shortBreak()" class="inative">short break</button>
             </li>
             <li>
-               <button onclick="longBreak(this)" class="inative">long break</button>
+               <button onclick="longBreak()" class="inative">long break</button>
             </li>
          </ul>
       </nav>
@@ -44,7 +43,7 @@
       <section class="time-container">
          <div class="circle-time">
             <h2 class="time">22:00</h2>
-            <h3 class="start">START</h3>
+            <h3 data-state="start" class="start">START</h3>
             <audio src="assets/audio/timer_Beep.mp3"></audio>
          </div>    
          <svg width="95%" height="95%" viewBox="0 0 277 266" fill="none" xmlns="http://www.w3.org/2000/svg">

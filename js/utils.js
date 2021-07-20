@@ -5,6 +5,7 @@ function formatTimer(time) {
 
 function reset() {
    pomodoroState.innerText = 'START'
+   pomodoroState.dataset.state = 'start'
    initial = true
    circleTimer.style.animationName = ''
    circleTimer.style.animationDuration = ''
@@ -14,7 +15,6 @@ function reset() {
    clearInterval(pomodoro)
    clearInterval(timeSound)
    timerBeep.pause()
-   
 
    mainElement.classList.remove('timeout')
 

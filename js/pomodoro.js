@@ -2,7 +2,7 @@ function start() {
    pomodoro = setInterval(() => {
       minute--
       timer(minute)
-   }, 1000)
+   }, 10)
 
    if (initial) {
       circleTimer.style.animationName = 'time'
@@ -21,7 +21,8 @@ function pause() {
 
 function timeOut() {
    clearInterval(pomodoro)
-   document.querySelector('.circle-time h3').innerText = 'RESTART'
+   pomodoroState.dataset.state = 'restart'
+   pomodoroState.innerText = 'RESTART'
    mainElement.classList.add('timeout')
    timerBeep.play()
    timeSound = setInterval(() => timerBeep.play(), 10000)
@@ -39,8 +40,9 @@ function timer(second) {
 }
 
 pomodoroState.addEventListener('click', () => {
-   if (pomodoroState.innerText === 'RESTART') {
+   if (pomodoroState.dataset.state === 'restart') {
       reset()
+      pomodoroState.dataset.state = 'start'
    } else if (alternateStartAndPause) {
       start()
       pomodoroState.innerText = 'PAUSE'
