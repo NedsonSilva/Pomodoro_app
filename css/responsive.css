@@ -24,12 +24,18 @@
       padding: 1.1rem .7rem;
    }
 
-   form section, form legend, form button {
-      margin: 1.7rem 1rem;
+   form section,
+   form legend,
+   form button {
+      margin: 1.2rem 1rem;
    }
 
    #conf-time input {
-      width: 90px;
+      width: 24vw;
+   }
+
+   .warning {
+      margin-top: 1.5rem;
    }
 
 }

@@ -2,7 +2,7 @@ function start() {
    pomodoro = setInterval(() => {
       minute--
       timer(minute)
-   }, 10)
+   }, 1000)
 
    if (initial) {
       circleTimer.style.animationName = 'time'
