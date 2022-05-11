@@ -24,6 +24,8 @@ formatTimer(second)
 
 function toggleConf() {
    document.getElementById('settings').classList.toggle('open-settings')
+   themeUtils.colorConf(colorSelected - 1)
+   themeUtils.fontConf(fontSelected - 1)  
 }
 
 const lastConfig = {
@@ -81,8 +83,28 @@ document.querySelector('.close img').addEventListener('click', () => {
 function applyConf(event) {
    event.preventDefault()
 
+   setColor()
+   pomodoroButtons.forEach((btn, index) => {
+      if (!btn.classList.contains('inative')) {
+         if (index === 0) pomodoroTimer()
+         if (index === 1) shortBreak()
+         if (index === 2) longBreak()
+      }
+   })
+
+   reset()
+   toggleConf()
+}
+
+function setColor() {
+
+   if (!colorSelected || !fontSelected) return
+
+   localStorage.setItem('colorSelected', colorSelected)
+   localStorage.setItem('fontSelected', fontSelected)
    if (colorSelected === 1)
       body.classList.remove('color2', 'color3')
+
    if (colorSelected === 2) {
       body.classList.remove('color3')
       body.classList.add('color2')
@@ -103,17 +125,6 @@ function applyConf(event) {
       body.classList.remove('font2')
       body.classList.add('font3')
    }
-
-   pomodoroButtons.forEach((btn, index) => {
-      if (!btn.classList.contains('inative')) {
-         if (index === 0) pomodoroTimer()
-         if (index === 1) shortBreak()
-         if (index === 2) longBreak()
-      }
-   })
-
-   reset()
-   toggleConf()
 }
 
 form.addEventListener('submit', applyConf)

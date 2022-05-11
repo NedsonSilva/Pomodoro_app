@@ -1,9 +1,10 @@
 const altColor = document.querySelectorAll('.list-colors li')
 const altFont = document.querySelectorAll('.list-fonts li')
 
-let colorSelected = 0;
-let fontSelected = 0
+let colorSelected = parseInt(localStorage.getItem('colorSelected')) || 1
+let fontSelected = parseInt(localStorage.getItem('fontSelected')) || 1
 
+setColor()
 const themeUtils = {
    colorConf(id) {
       altColor.forEach((cor, index) => {
