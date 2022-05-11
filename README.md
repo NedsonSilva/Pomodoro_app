@@ -7,7 +7,7 @@ This is a solution to the [Pomodoro app](https://www.frontendmentor.io/challenge
 
 ### Links
 
-- Live Site URL: [pomodoro app](https://nedsonsilva.github.io/Calculator_App/)
+- Live Site URL: [pomodoro app](https://nedsonsilva.github.io/Pomodoro_app/)
 
 ### Built with
 
